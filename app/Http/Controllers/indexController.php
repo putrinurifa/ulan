@@ -11,8 +11,8 @@ class indexController extends Controller
         return view('index');
     }
 
-    public function user()
+    public function dashboard()
     {
-        return view('user');
+        return view('convection.dashboard');
     }
 }

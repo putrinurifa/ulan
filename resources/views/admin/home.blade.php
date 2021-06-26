@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-lg-8 align-self-baseline">
                     <p class="text-white-75 font-weight-light mb-5">Sejak 2019</p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Masukkan Pesanan</a>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ route('admin.create') }}">Masukkan Pesanan</a>
                 </div>
             </div>
         </div>
@@ -34,5 +34,28 @@
             <th>No_Handphone</th>
             <th width="280px">Action</th>
         </tr>
+
+        @foreach ($admins as $admin)
+        <tr>
+            <th>{{ $admin->id}}</th>
+            <th>{{ $admin->jenis}}</th>
+            <th>{{ $admin->jumlah}}</th>
+            <th>{{ $admin->harga}}</th>
+            <th>{{ $admin->no_handphone}}</th>
+            <th>
+            <form action="{{route('admin.destroy', $admin->id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('admin.show', $admin->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('admin.edit', $admin->id) }}">Edit</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </th>
+        </tr>
+        @endforeach
     </table>
+    <div class="d-flex">
+        {{ $admins->links('pagination::bootstrap-4') }}
+    </div>
+</div>
 @endsection

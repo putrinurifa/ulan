@@ -35,6 +35,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Layanan</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portofolio</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ ('convection') }}">Pesan</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a></li>
                     </ul>
                 </div>
