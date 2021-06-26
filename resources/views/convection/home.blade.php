@@ -27,7 +27,7 @@
 
     <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2" >
-                <h2 align='center'>DATA PESANAN</h2>
+                <h2 align='center'>DATA PESANAN PELANGGAN</h2>
             </div>
                 <form class="float-right form-inline" id="searchForm" method="get" action="{{ ('/convection/cari')}}" role="search">
                     <div class="form-group">
