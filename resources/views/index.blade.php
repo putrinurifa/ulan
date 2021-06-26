@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-        </header >
+        </header  >
 <!-- About-->
         <section class="page-section bg-primary" id="about">
             <div class="container">
