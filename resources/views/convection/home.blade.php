@@ -29,16 +29,22 @@
             <div class="pull-left mt-2" >
                 <h2 align='center'>DATA PESANAN PELANGGAN</h2>
             </div>
-                <form class="float-right form-inline" id="searchForm" method="get" action="{{ ('/convection/cari')}}" role="search">
+                <form class="float-right form-inline" method="get" action="{{ route('search') }}">
                     <div class="form-group">
-                        <input type="text" name="keyword" class="form-control" id="Keyword" aria-describedby="Keyword" placeholder="Keyword" value="{{request()->query('keyword')}}">
+                        <input type="text" name="search" class="form-control" id="search" aria-describedby="search" placeholder="Masukkan ID">
                     </div>
                     <button type="submit" class="btn btn-primary mx-2">Cari</button>
-                    <a href="{{ ('/convection/cari')}}">
+                    <a href="{{ route('convection.index') }}">
                         <button type="button" class="btn btn-danger">Reset</button>
                      </a>
                 </form>
         </div><br><br>
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+        @endif
 
     <table class="table table-bordered">
         <tr>

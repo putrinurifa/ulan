@@ -129,13 +129,8 @@ class HalamanAdminController extends Controller
 
     public function search(Request $request)
     {
-        $admins = Admin::when($request->keyword, function ($query) use ($request) {
-            $query->where('id', 'like', "%{$request->keyword}%")
-                ->orWhere('jenis', 'like', "%{$request->keyword}%")
-                ->orWhere('jumlah', 'like', "%{$request->keyword}%")
-                ->orWhere('harga', 'like', "%{$request->keyword}%");
-        })->paginate(5);
-        $admins->appends($request->only('keyword'));
-        return view('admin.home', compact('admins'));
+        $keyword = $request->search;
+        $admins = Admin::where('id' , $keyword )->paginate(1);
+        return view('admin.home', compact('admins'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

@@ -137,13 +137,8 @@ class ConvectionController extends Controller
 
     public function search(Request $request)
     {
-        $convections = Convection::when($request->keyword, function ($query) use ($request) {
-            $query->where('id', 'like', "%{$request->keyword}%")
-                ->orWhere('jenis', 'like', "%{$request->keyword}%")
-                ->orWhere('jumlah', 'like', "%{$request->keyword}%")
-                ->orWhere('harga', 'like', "%{$request->keyword}%");
-        })->paginate(5);
-        $convections->appends($request->only('keyword'));
-        return view('convection.index', compact('convections'));
+        $keyword = $request->search;
+        $convections = Convection::where('id' , $keyword )->paginate(5);
+        return view('convection.home', compact('convections'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

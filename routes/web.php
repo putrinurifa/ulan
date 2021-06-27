@@ -24,15 +24,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HalamanAdminController::class, 'index'])->name('home');
-
-// Route::get('convection/dashboard',[ConvectionController::class, 'convection.dashboard']);
-// Route::get('convection/cari',[ConvectionController::class, 'search']);
 Route::resource('admin',HalamanAdminController::class);
 Route::resource('convection',ConvectionController::class);
-Route::get('/convection/cari',[ConvectionController::class, 'search']);
-// Route::prefix('convection') -> group(function(){
-//     Route::get('/convection', [ConvectionController::class, 'dashboard']);
-//     Route::get('/convection/dashboard' ,function(){
-//         return redirect('convection.home');
-//     });
-// });
+Route::get('search',[ConvectionController::class, 'search'])->name('search');
+Route::get('search1',[HalamanAdminController::class, 'search'])->name('search1');
