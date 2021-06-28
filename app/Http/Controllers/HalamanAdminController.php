@@ -31,6 +31,14 @@ class HalamanAdminController extends Controller
     
     }
 
+    public function transaksi()
+    {
+        
+        $admins = Admin::paginate(5);
+        return view('admin.transaksi', compact('admins'));
+    
+    }
+
     /**
      * Store a newly created resource in storage.
      *

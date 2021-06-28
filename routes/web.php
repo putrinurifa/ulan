@@ -27,4 +27,6 @@ Route::get('/home', [App\Http\Controllers\HalamanAdminController::class, 'index'
 Route::resource('admin',HalamanAdminController::class);
 Route::resource('convection',ConvectionController::class);
 Route::get('search',[ConvectionController::class, 'search'])->name('search');
+
+Route::get('transaksi',[HalamanAdminController::class, 'transaksi'])->name('transaksi');
 Route::get('search1',[HalamanAdminController::class, 'search'])->name('search1');
